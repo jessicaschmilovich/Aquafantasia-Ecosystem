@@ -4,17 +4,14 @@ The Aquafantasia Ecosystem is a Java-based simulation that models an underwater 
 
 **Features:**  
 Grid-based gameplay  
-A dynamic grid represents the underwater realm, visually updated in real-time using Java Swing. Players personalize their mermaids and unicorns by assigning colors from red, orange, pink, black, gray, cyan, or magenta.
-
+A dynamic grid represents the underwater realm, visually updated in real-time using Java Swing. Players personalize their mermaids and unicorns by assigning colors from red, orange, pink, black, gray, cyan, or magenta.  
 Creature interactions  
 - Breeding: If two mermaids or unicorns of the same type occupy adjacent cells while fighting, they breed to create another creature of their type.  
 - Mermaids naturally have an advantage in the aquatic environment, often overpowering unicorns unless countered by power-ups.  
-
 Power-ups  
 - Poseidon's trident (gold): Enhances a mermaid's strength, allowing it to overcome stronger opponents.
 - Purple horn: Grants unicorns an edge, boosting their ability to dominate battles.
-- Genie bottle: Enables a creature to occupy three grid cells simultaneously, turning mermaid cells green and unicorn cells blue, overriding existing occupants.
-
+- Genie bottle: Enables a creature to occupy three grid cells simultaneously, turning mermaid cells green and unicorn cells blue, overriding existing occupants.  
 Randomized events  
 - Power-ups and battles are driven by randomization, ensuring each simulation is unpredictable and unique.  
 
