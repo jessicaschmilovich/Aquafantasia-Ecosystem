@@ -1,46 +1,53 @@
 import java.util.Random;
 
 public class Unicorn extends Creature {
-    private static final Random rand = new Random();
-    private String name;
+    private static final Random rand = new Random(); // Random generator for movement and placement.
+    private String name; // The name of the Unicorn.
 
+    // Constructor to initialize a Unicorn with a specific color and name.
     public Unicorn(String color, String name) {
-        setColor(color);  // Set initial user-defined color
-        this.name = name;
+        setColor(color); // Assign the initial user-defined color.
+        this.name = name; // Assign the Unicorn's name.
     }
-    
-    public String getType()
-    {
-      return "Unicorn";
+
+    // Returns the type of this creature.
+    public String getType() {
+        return "Unicorn";
     }
 
     @Override
     public void move(Creature[] ecosystem, int position) {
+        // If the Unicorn has Genie power, apply it to occupy multiple cells.
         if (hasGenie()) {
             Genie.applyGeniePower(ecosystem, position, this);
-            return;
+            return; // No further action after applying Genie power.
         }
 
-        // Random movement: -1 (left), 0 (stay), or +1 (right)
+        // Generate a random move direction: -1 (left), 0 (stay), or +1 (right).
         int moveDirection = rand.nextInt(3) - 1;
         int targetPosition = position + moveDirection;
 
-        // Ensure target position is within bounds
+        // Ensure the target position is within the ecosystem's bounds.
         if (targetPosition >= 0 && targetPosition < ecosystem.length) {
             Creature targetCreature = ecosystem[targetPosition];
-            if (targetCreature == null) { // Move to empty spot
+
+            if (targetCreature == null) {
+                // Move to the empty spot.
                 ecosystem[targetPosition] = this;
                 ecosystem[position] = null;
             } else if (targetCreature instanceof Unicorn) {
-                // Attempt breeding if target is another Unicorn
-                ecosystem[position] = null;
+                // Breed if the target is another Unicorn.
+                ecosystem[position] = null; // Vacate the current position.
                 Creature newUnicorn = this.breed();
-                placeInEmptyCell(ecosystem, newUnicorn);
+                placeInEmptyCell(ecosystem, newUnicorn); // Place offspring in an empty cell.
             } else if (targetCreature instanceof Mermaid) {
+                // Handle interaction with a Mermaid.
                 Mermaid mermaid = (Mermaid) targetCreature;
                 if (!this.hasPower() && !mermaid.hasPower()) {
+                    // Both have no power; remove this Unicorn.
                     ecosystem[position] = null;
                 } else if (this.hasPower() && !mermaid.hasPower()) {
+                    // This Unicorn has power; replace the Mermaid.
                     ecosystem[targetPosition] = this;
                     ecosystem[position] = null;
                 }
@@ -50,30 +57,39 @@ public class Unicorn extends Creature {
 
     @Override
     public Creature breed() {
-        return new Unicorn(getColor(), name);  // Breed a new Unicorn with the current color
+        // Create a new Unicorn with the same color and name.
+        return new Unicorn(getColor(), name);
     }
 
+    // Grants the Unicorn a Power-up and changes its color to purple.
     public void gainPower() {
-        setColor("purple");  // Set color to purple for Power-up
-        setHasPower(true);
+        setColor("purple"); // Indicate power-up with a unique color.
+        setHasPower(true); // Mark the Unicorn as powered up.
     }
 
     @Override
     public String display() {
-        return hasPower() ? "U*" : "U";  // Display "U*" if Unicorn has Power-up
+        // Display "U*" if the Unicorn has a Power-up, otherwise "U".
+        return hasPower() ? "U*" : "U";
     }
 
-    // Helper method to place a new creature in an empty cell in the ecosystem
+    // Places the given creature in a random empty cell within the ecosystem.
     public void placeInEmptyCell(Creature[] ecosystem, Creature creature) {
         int emptyPos;
+        // Find a random empty position in the ecosystem.
         do {
             emptyPos = rand.nextInt(ecosystem.length);
         } while (ecosystem[emptyPos] != null);
+
+        // Place the creature in the found empty cell.
         ecosystem[emptyPos] = creature;
     }
-    
-    public String toString()
-    {
-      return "color: " + getColor() + " name: " + name + " has power: " + hasPower() + " has genie: " + hasGenie();
+
+    @Override
+    public String toString() {
+        // Provide a string representation of the Unicorn's attributes.
+        return "color: " + getColor() + " name: " + name + 
+               " has power: " + hasPower() + 
+               " has genie: " + hasGenie();
     }
 }
