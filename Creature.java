@@ -1,47 +1,27 @@
-public abstract class Creature {
-    private String color; // The creature's color.
-    private boolean hasPower; // Whether the creature has a special power.
-    private boolean hasGenie; // Whether the creature has a genie.
+public class Genie {
 
-    // Abstract method for creature movement, implemented by subclasses.
-    public abstract void move(Creature[] ecosystem, int position);
+    // Applies Genie power, allowing a creature to occupy up to three cells in the ecosystem.
+    public static void applyGeniePower(Creature[] ecosystem, int position, Creature creature) {
+        int ecosystemSize = ecosystem.length; // Get the total number of cells in the ecosystem.
+        int start, end; // Define the range of cells to be occupied.
 
-    // Abstract method defining how the creature breeds, implemented by subclasses.
-    public abstract Creature breed();
+        if (position == 0) {
+            // Special case: Creature is at the start of the ecosystem.
+            start = 0;
+            end = Math.min(2, ecosystemSize - 1); // Occupy up to three cells, ensuring no overflow.
+        } else if (position == ecosystemSize - 1) {
+            // Special case: Creature is at the end of the ecosystem.
+            start = Math.max(0, ecosystemSize - 3); // Occupy the last three cells, ensuring no underflow.
+            end = ecosystemSize - 1;
+        } else {
+            // General case: Creature is somewhere in the middle of the ecosystem.
+            start = Math.max(0, position - 1); // Occupy one cell to the left.
+            end = Math.min(ecosystemSize - 1, position + 1); // Occupy one cell to the right.
+        }
 
-    // Abstract method returning the type of the creature.
-    public abstract String getType();
-
-    public String getColor() {
-        return color; // Returns the creature's color.
-    }
-
-    public void setColor(String color) {
-        this.color = color; // Sets the creature's color.
-    }
-
-    public boolean hasPower() {
-        return hasPower; // Checks if the creature has a power.
-    }
-
-    public void setHasPower(boolean hasPower) {
-        this.hasPower = hasPower; // Updates the creature's power status.
-    }
-
-    public boolean hasGenie() {
-        return hasGenie; // Checks if the creature has a genie.
-    }
-
-    public void setHasGenie(boolean hasGenie) {
-        this.hasGenie = hasGenie; // Updates the creature's genie status.
-    }
-
-    // Abstract method to display details of the creature.
-    public abstract String display();
-
-    @Override
-    public String toString() {
-        // Converts the creature's attributes into a readable string format.
-        return "color: " + color + " has power: " + hasPower + " has genie: " + hasGenie;
+        // Set all cells in the range [start, end] to the given creature.
+        for (int i = start; i <= end; i++) {
+            ecosystem[i] = creature;
+        }
     }
 }
