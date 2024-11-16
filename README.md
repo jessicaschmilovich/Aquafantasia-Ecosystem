@@ -1,2 +1,4 @@
 # Aquafantasia-Ecosystem
-The Aquafantasia Ecosystem is a Java-based simulation of an underwater world where mermaids and unicorns interact in a grid, gaining power-ups like golden tridents, purple horns, or genie powers. The project uses randomization, object-oriented principles, and Java Swing for grid implementation and graphics. This was a group-based school project.
+
+The Aquafantasia Ecosystem is a Java-based simulation that models an underwater world where mermaids and unicorns interact, breed, and gain power-ups like golden tridents, purple horns, and genie powers. The simulation uses Java Swing for graphical rendering and incorporates object-oriented principles such as inheritance and abstraction to manage creature behaviors, randomized movements, and dynamic interactions within a grid environment.
+
