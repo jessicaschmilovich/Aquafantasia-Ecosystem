@@ -20,6 +20,7 @@ Randomized events
 - Power-ups and battles are driven by randomization, ensuring each simulation is unpredictable and unique.  
 
 **Project Structure:**  
+
 Creature.java: Abstract class defining shared attributes and methods for mermaids and unicorns, such as movement and power-up interactions.  
 
 Ecosystem.java: Oversees the simulation logic, including initialization, user input for creature customization, and the main gameplay loop.  
