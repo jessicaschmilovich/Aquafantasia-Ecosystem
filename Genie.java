@@ -1,4 +1,5 @@
 public class Genie {
+    
     // Applies Genie power, allowing a creature to occupy up to three cells in the ecosystem.
     public static void applyGeniePower(Creature[] ecosystem, int position, Creature creature) {
         int ecosystemSize = ecosystem.length; // Get the total number of cells in the ecosystem.
