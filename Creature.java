@@ -1,7 +1,3 @@
-/**
- * An abstract class representing a generic creature in an ecosystem. 
- * Provides shared attributes and abstract methods for specific creature behaviors.
- */
 public abstract class Creature {
     private String color; // The creature's color.
     private boolean hasPower; // Whether the creature has a special power.
