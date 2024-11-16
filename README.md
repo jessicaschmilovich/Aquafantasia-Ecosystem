@@ -21,8 +21,13 @@ Randomized events
 
 **Project Structure:**  
 Creature.java: Abstract class defining shared attributes and methods for mermaids and unicorns, such as movement and power-up interactions.  
+
 Ecosystem.java: Oversees the simulation logic, including initialization, user input for creature customization, and the main gameplay loop.  
+
 EcosystemGrid.java: Manages the graphical representation of the grid using Java Swing, dynamically updating creature positions and grid states.  
+
 Mermaid.java: Implements mermaid-specific behaviors, including the ability to wield Poseidon's trident and dominate underwater battles.  
+
 Unicorn.java: Defines unicorn-specific mechanics, such as utilizing the purple horn to counter the mermaid's natural advantage.  
+
 Genie.java: Handles the logic for the genie bottle power-up, allowing creatures to occupy three cells at once.  
