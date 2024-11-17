@@ -83,10 +83,10 @@ public class Ecosystem {
         // Set up a JFrame to visualize the ecosystem.
         JFrame frame = new JFrame("Ecosystem Simulation");
         grid = new EcosystemGrid(ecosystem); // Initialize grid with the ecosystem array.
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Set the default close operation to exit the application when the frame is closed.
         frame.add(grid); // Add the grid to the frame.
-        frame.pack();
-        frame.setVisible(true);
+        frame.pack(); // Adjust the frame size to fit the preferred size and layout of its components.
+        frame.setVisible(true); // Make the frame visible on the screen.
 
         int step = 0; // Counter for simulation steps.
         while (true) {
