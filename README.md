@@ -27,8 +27,8 @@ Ecosystem.java: Oversees the simulation logic, including initialization, user in
 
 EcosystemGrid.java: Manages the graphical representation of the grid using Java Swing, dynamically updating creature positions and grid states.  
 
+Genie.java: Handles the logic for the genie bottle power-up, allowing creatures to occupy three cells at once.  
+
 Mermaid.java: Implements mermaid-specific behaviors, including the ability to wield Poseidon's trident and dominate underwater battles.  
 
 Unicorn.java: Defines unicorn-specific mechanics, such as utilizing the purple horn to counter the mermaid's natural advantage.  
-
-Genie.java: Handles the logic for the genie bottle power-up, allowing creatures to occupy three cells at once.  
