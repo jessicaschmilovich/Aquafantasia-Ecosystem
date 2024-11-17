@@ -69,7 +69,7 @@ public class Unicorn extends Creature {
 
     @Override
     public String display() {
-        // Display "U*" if the Unicorn has a Power-up, otherwise "U".
+        // To represent difference in color on grid, display "U*" if the Unicorn has a Power-up, otherwise "U".
         return hasPower() ? "U*" : "U";
     }
 
