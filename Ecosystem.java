@@ -57,7 +57,7 @@ public class Ecosystem {
         ecosystem[mermaidPosition] = initialMermaid;
         ecosystem[unicornPosition] = initialUnicorn;
 
-        // Display the initial setup for user feedback.
+        // Display the initial setup.
         System.out.println("Initial setup:");
         System.out.println("Mermaid " + mermaidName + " placed at position " + mermaidPosition + " with color " + mermaidColor);
         System.out.println("Unicorn " + unicornName + " placed at position " + unicornPosition + " with color " + unicornColor);
