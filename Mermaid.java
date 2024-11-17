@@ -66,7 +66,7 @@ public class Mermaid extends Creature {
 
     @Override
     public String display() {
-        // Display "M*" if the Mermaid has power, otherwise "M".
+        // To represent difference in color on grid, display "M*" if the Mermaid has power, otherwise "M".
         return hasPower() ? "M*" : "M";
     }
 
