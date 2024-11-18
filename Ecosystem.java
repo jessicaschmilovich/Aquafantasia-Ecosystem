@@ -203,6 +203,7 @@ public class Ecosystem {
     }
 
     public static void main(String[] args) {
+        @SuppressWarnings("resource") // To make sure there are no warnings about scanner not being closed.
         Scanner scanner = new Scanner(System.in);
 
         // Ensure the user enters a valid size for the ecosystem.
